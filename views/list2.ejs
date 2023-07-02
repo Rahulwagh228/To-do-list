@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>client to server data</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- <% if (KindOfDay === "thursday" || KindOfDay === "sunda") { %>
+        <h1 style="color: blue;">So today is <%= KindOfDay %>!</h1>
+   <% } else { %>
+        <h1 style="color: rgb(8, 90, 213);">Today is <%= KindOfDay %>.</h1>
+   <% } %> -->
+    <div class="box" id="heading">
+
+        <h1>
+            <%=KindOfDay%>
+        </h1>
+    </div>
+
+    <div class="box">
+
+        <% for(let i=0; i<kindoflist.length; i++){ %>
+            <div class="item">
+                <input type="checkbox">
+                <p>
+                    <%=kindoflist[i] %>
+                </p>
+            </div>
+            <% }%>
+
+
+                <form class="item" action="/" method="post">
+                    <input type="text" name="item1" placeholder="Add new item" autocomplete="off">
+                    <button type="submit" name="button">+</button>
+                </form>
+    </div>
+
+</body>
+
+</html>
