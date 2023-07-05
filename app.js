@@ -5,12 +5,12 @@ const bodyParser = require("body-parser");
 
 
 const app = express();
-var items = ["Eat", "sleep" , "trade" ];
-app.use(bodyParser.urlencoded({extended:true}));
+var items = ["Eat", "sleep", "trade"];
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 
-app.set("view engine", "ejs");
+app.set("view engine", "ejs"); 
 app.get("/", function (req, res) {
 
     // to check its weekend or not..... 
@@ -19,11 +19,11 @@ app.get("/", function (req, res) {
     // var day = "";
 
     var today = new Date();
-    var options = { 
+    var options = {
         weekday: 'long',
-         year: 'numeric',
-          month: 'long',
-         };
+        year: 'numeric',
+        month: 'long',
+    };
 
     var day = today.toLocaleDateString("en-US", options)
 
@@ -64,14 +64,14 @@ app.get("/", function (req, res) {
     //     // res.send()
     //     // res.sendFile(__dirname + "/index.html");
     // }
-    res.render("list2", { KindOfDay: day, kindoflist:items });
+    res.render("list2", { KindOfDay: day, kindoflist: items });
 
 
-app.post("/", function(req, res){
-    var item1 = req.body.item1;
-    items.push(item1);
-    res.redirect ("/");
-})
+    app.post("/", function (req, res) {
+        var item1 = req.body.item1;
+        items.push(item1);
+        res.redirect("/");
+    })
 
 });
 
